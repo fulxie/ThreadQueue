@@ -10,12 +10,12 @@ sub RunJobs
 	use threads;
 	use Thread::Queue;
 	our $NTHREADS = shift;	
-	my  $doJobName=shift;
+	my  $jobName=shift;
 	my  $jobs=shift;
 	
 	#define worker sub
     my  $workerSub=sub{
-				  my $doJobName=shift;
+				  my $jobName=shift;
 				  our $PROCESS_QUEUE;
 				  while ( my ($ps) = $PROCESS_QUEUE -> dequeue(1)  )
 				  {
@@ -23,7 +23,7 @@ sub RunJobs
 					{
 					  last;
 					}	
-					eval ($doJobName.'($ps)'); #execute a job here
+					eval ($jobName.'($ps)'); #execute a job here
 					sleep(1);	
 					#print threads -> self() -> tid(). ": pinging $server\n"; 
 				  }};	
