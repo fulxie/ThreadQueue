@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 # Perl Thread Queue Wrapper
-# Copyright (c) Leon.
-#
+# Author: Leon Xie
+# 2/14/2018
 
 
 #Wrap Thread Queue
