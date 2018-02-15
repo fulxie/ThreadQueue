@@ -39,7 +39,7 @@ sub RunJobs
 	$PROCESS_QUEUE -> end();	
 	for (1..$NTHREADS)
 	{
-	  threads ->create($workerSub, $doJobName);
+	  threads ->create($workerSub, $jobName);
 	}
 
 	foreach my $thr ( threads -> list() )
