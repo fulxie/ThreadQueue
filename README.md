@@ -31,7 +31,7 @@ foreach $i(1..100)
   
   my @aa=($i, "q".$i);
   
-  push @jobs, \@aa; 
+  push @jobs, \\@aa; 
   
 }
 
@@ -40,5 +40,5 @@ foreach $i(1..100)
 
 my $threads=20;
 
-RunJobs($threads, "DoYourJob", \@jobs);
+RunJobs($threads, "DoYourJob", \\@jobs);
 
