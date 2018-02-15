@@ -75,7 +75,7 @@ foreach $i(1..100)
   push @jobs, \@aa; 
 }
 
-#call jobs
+#run jobs
 my $threads=20;
 RunJobs($threads, "DoYourJob", \@jobs);
 
