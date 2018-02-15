@@ -7,7 +7,7 @@ you just need to define job function and prepare a parameter array for each job.
 eg:
 
 
-### what you need to do is to define your job function and prepare parameter for each job
+### define your job function
 sub DoYourJob{
 	my $arg_=shift;
 	
