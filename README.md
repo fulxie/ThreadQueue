@@ -8,6 +8,7 @@ eg:
 
 
 ### define your job function
+
 sub DoYourJob{
 	my $arg_=shift;
 	
@@ -21,14 +22,23 @@ sub DoYourJob{
 
 #prepare parameters for each job and pack to an array here
 @jobs=(); 
+
 foreach $i(1..100)
+
 {
+
   ##for example
+  
   my @aa=($i, "q".$i);
+  
   push @jobs, \@aa; 
+  
 }
 
+
 #run jobs
+
 my $threads=20;
+
 RunJobs($threads, "DoYourJob", \@jobs);
 
