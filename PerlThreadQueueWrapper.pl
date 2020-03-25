@@ -84,22 +84,21 @@ sub RunJobs
 ### what you need to do is to define your job function and prepare parameter for each job
 sub DoYourJob{
 	my @args=@_; 		 
-	 print    $args[0], " sdf ".$args[1]."\n";	 
+	 print    $args[0], " sdf ".$args[1]." $args[2] \n";	 
 }
 
 #prepare parameters for each job and pack to an array here
-@jobs=(); 
+@jobs_arguments=(); 
 foreach $i(1..100)
 {
   ##for example
-   my @aa=($i, "q".$i, "xiexie".$i); # three arguments for DoYourJob
- 
-  push @jobs, \@aa; 
+   my @aa=($i, "q".$i, "test".$i); # three arguments for a DoYourJob 
+   push @jobs_arguments, \@aa; 
 }
 
 #run jobs
 my $threads=20;
-RunJobs($threads, \&DoYourJob, \@jobs);
+RunJobs($threads, \&DoYourJob, \@jobs_arguments);
 
 
 
