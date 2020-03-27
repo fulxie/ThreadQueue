@@ -43,3 +43,21 @@ my $threads=20;
 
 RunJobs($threads, "DoYourJob", \\@jobs);
 
+
+
+############ split and merge files #############
+use strict;
+use warnings;
+use  FindBin qw($RealBin);
+use  lib "$RealBin";
+use  FileSplitMerge;
+###### split file ########
+# splitFile(FileName, FileCount, OutputFolder, Prefix, ExtensionName, Theads );
+FileSplitMerge::splitFile("E:/test.fastq.gz", 7,  "temp", "test", ".tmp.gz", 6 );
+
+###### merge files ########
+# mergeFiles(OutputFile, FileArrayRef);
+my @aa;
+map{ push @aa, "temp/test_".$_.".tmp.gz"} 1..7;
+FileSplitMerge::mergeFiles("temp/test.gz", \@aa);
+
