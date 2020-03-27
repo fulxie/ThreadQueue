@@ -45,13 +45,20 @@ RunJobs($threads, "DoYourJob", \\@jobs);
 
 
 
+
 ############ split and merge files #############
+
 use strict;
+
 use warnings;
+
 use  FindBin qw($RealBin);
+
 use  lib "$RealBin";
+
 use  FileSplitMerge;
- #splitFile(FileName, FileCount, OutputFolder, Prefix, ExtensionName, Theads );
+
+#splitFile(FileName, FileCount, OutputFolder, Prefix, ExtensionName, Theads );
  
 FileSplitMerge::splitFile("E:/test.fastq.gz", 7,  "temp", "test", ".tmp.gz", 6 );
 
